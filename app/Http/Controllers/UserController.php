@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Pokemon;
+use App\User;
 use Illuminate\Http\Request;
 
-class PokemonController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $pokemons = Pokemon::all();
-        return $pokemons;
-    }
-
-    public function range($qty=10, $start = 0) {
-        $pokemons = Pokemon::skip($start)->take($qty)->get();
-        return $pokemons;
-    }
-
-    public function pokedex() {
-        $pokemons = Pokemon::where("pokedex", $pokedex_id)->get();
-        return $pokemons;
+    public function index()
+    {
+        return User::all();
     }
 
     /**
@@ -32,7 +22,8 @@ class PokemonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -42,27 +33,30 @@ class PokemonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Pokemon $pokemon) {
-        return $pokemon;
+    public function show(User $user)
+    {
+        return $user;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pokemon $pokemon) {
+    public function edit(User $user)
+    {
         //
     }
 
@@ -70,20 +64,22 @@ class PokemonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pokemon $pokemon) {
+    public function update(Request $request, User $user)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pokemon $pokemon) {
+    public function destroy(User $user)
+    {
         //
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Pokemon;
+use App\Pokedex;
+use App\User;
 use Illuminate\Http\Request;
 
-class PokemonController extends Controller
+class PokedexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,17 +14,15 @@ class PokemonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $pokemons = Pokemon::all();
-        return $pokemons;
+        $pokedexes = Pokedex::all();
+        return $pokedexes;
     }
-
-    public function range($qty=10, $start = 0) {
-        $pokemons = Pokemon::skip($start)->take($qty)->get();
-        return $pokemons;
+    public function user(User $user) {
+        $pokedexes = $user->pokedexes;
+        return $pokedexes;
     }
-
-    public function pokedex() {
-        $pokemons = Pokemon::where("pokedex", $pokedex_id)->get();
+    public function pokemons(Pokedex $pokedex) {
+        $pokemons = $pokedex->pokemons;
         return $pokemons;
     }
 
@@ -49,20 +48,25 @@ class PokemonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\Pokedex  $pokedex
      * @return \Illuminate\Http\Response
      */
-    public function show(Pokemon $pokemon) {
-        return $pokemon;
+    public function show(Pokedex $pokedex) {
+        return $pokedex;
+    }
+    public function full(Pokedex $pokedex) {
+        $pokedex->user = $pokedex->user;
+        $pokedex->pokemons = $pokedex->pokemons;
+        return $pokedex;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\Pokedex  $pokedex
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pokemon $pokemon) {
+    public function edit(Pokedex $pokedex) {
         //
     }
 
@@ -70,20 +74,20 @@ class PokemonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\Pokedex  $pokedex
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pokemon $pokemon) {
+    public function update(Request $request, Pokedex $pokedex) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pokemon  $pokemon
+     * @param  \App\Pokedex  $pokedex
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pokemon $pokemon) {
+    public function destroy(Pokedex $pokedex) {
         //
     }
 }

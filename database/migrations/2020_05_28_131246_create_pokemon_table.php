@@ -13,12 +13,22 @@ class CreatePokemonTable extends Migration
      */
     public function up()
     {
-        Schema::create('pokemon', function (Blueprint $table) {
+        Schema::create('pokemons', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('numero');
+            $table->string('nom_fr');
+            $table->string('nom_en');
+            $table->string('type1');
+            $table->string('type2');
+            $table->string('talents');
+            $table->integer('pv');
+            $table->integer('attaque');
+            $table->integer('defense');
+            $table->integer('attaque_speciale');
+            $table->integer('defense_speciale');
+            $table->integer('vitesse');
         });
     }
-
     /**
      * Reverse the migrations.
      *

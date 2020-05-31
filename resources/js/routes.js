@@ -12,4 +12,9 @@ export default [
         name: 'hello',
         component: Hello,
     },
+    {
+        path: '/autre',
+        name: 'autre',
+        component: Hello,
+    },
 ];

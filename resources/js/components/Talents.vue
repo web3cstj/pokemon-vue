@@ -1,11 +1,14 @@
 <template>
     <div class="talents">
-        <a v-for="(talent, i) in array" :key="i" :href="'talent/'+talent">{{talent}}</a>
+        <div class="talent" v-for="(talent, i) in array" :key="i" tabindex="0">
+            <div :href="'talent/'+talent">{{talent}}</div>
+            <talent-card :nom_fr="talent"></talent-card>
+        </div>
     </div>
 </template>
 
 <script>
-
+import TalentCard from "./TalentCard.vue";
 export default {
     name: 'Talents',
     data() {
@@ -17,6 +20,7 @@ export default {
         talents: {},
     },
     components: {
+        TalentCard,
     },
     mounted() {
     },
@@ -33,6 +37,11 @@ export default {
 <style lang="scss">
 .talents {
     display: grid;
+    .talent:not(:focus) {
+        div + * {
+            display:none;
+        }
+    }
 }
 </style>
 

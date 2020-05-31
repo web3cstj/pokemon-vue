@@ -2,12 +2,11 @@
     <div class="pokemoncard" :style="{'background-image':'url('+src+')'}">
         <div class="nom_fr">{{pokemon.nom_fr}}</div>
         <div class="nom_en">{{pokemon.nom_en}}</div>
+        <div class="image"></div>
         <div class="numero">{{pokemon.numero}}</div>
         <div class="type1">{{pokemon.type1}}</div>
         <div class="type2">{{pokemon.type2}}</div>
         <talents :talents="pokemon.talents"></talents>
-        <div class="talents">{{pokemon.talents}}</div>
-        <div class="image"></div>
     </div>
 </template>
 

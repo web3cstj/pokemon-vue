@@ -42,13 +42,14 @@ export default {
     --hue: 120;
     width: 15em;
     height: 21em;
-    border-radius: 1em;
-    border: 1px solid black;
+    border-radius: .5em;
+    // border: 1px solid black;
+    box-shadow: .1em .1em .2em rgba(0,0,0,0.5);
     background-repeat: no-repeat;
     background-size: 80% auto;
     background-position: center center;
     box-sizing: border-box;
-    background-color: hsl(var(--hue), 50%, 50%);
+    background-color: hsl(var(--hue), 30%, 70%);
     padding: 0.5em;
     display: grid;
     grid-template-rows: auto auto 1fr;

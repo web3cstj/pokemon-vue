@@ -20,7 +20,8 @@ export default {
         PokemonCard,
     },
     mounted() {
-        Axios.get("/api/pokemon/235").then(response => {
+        const id = this.$route.params.id;
+        Axios.get("/api/pokemon/"+id).then(response => {
             this.pokemon = response.data;
         });
     },

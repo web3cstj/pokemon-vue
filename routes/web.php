@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{reste?}', 'AppController@index')->name('spa');
+Route::get('/{reste?}/{reste2?}', 'AppController@index')->name('spa');

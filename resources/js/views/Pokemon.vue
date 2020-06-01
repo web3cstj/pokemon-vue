@@ -1,5 +1,6 @@
 <template>
-    <div class="hello">
+    <div class="pokemon-view">
+
         <pokemon-card v-if="pokemon" :pokemon="pokemon"/>
     </div>
 </template>
@@ -8,7 +9,7 @@
 import Axios from "axios";
 import PokemonCard from "../components/PokemonCard";
 export default {
-    name: 'Hello',
+    name: 'Pokemon',
     data() {
         return {
             pokemon: null,
@@ -31,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-.hello {
+.pokemon-view {
 
 }
 </style>

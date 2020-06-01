@@ -1,7 +1,7 @@
 <template>
     <div class="talents">
-        <div class="talent" v-for="(talent, i) in array" :key="i" tabindex="0">
-            <div :href="'talent/'+talent">{{talent}}</div>
+        <div class="talent" v-for="(talent, i) in array" :key="i">
+            <div :href="'talent/'+talent" tabindex="0">{{talent}}</div>
             <talent-card :nom_fr="talent"></talent-card>
         </div>
     </div>
@@ -37,8 +37,8 @@ export default {
 <style lang="scss">
 .talents {
     display: grid;
-    .talent:not(:focus) {
-        div + * {
+    .talent {
+        & > div:not(:focus) + * {
             display:none;
         }
     }

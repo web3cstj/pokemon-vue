@@ -1,5 +1,5 @@
 <template>
-    <div class="talentcard">
+    <div v-if="talent" class="talentcard">
         <div class="nom">{{talent.nom_fr}}</div>
         <div class="effet_combat">{{talent.effet_combat}}</div>
         <div class="effet_terrain">{{talent.effet_terrain}}</div>
@@ -37,6 +37,7 @@ export default {
     background-color: white;
     padding: 1em;
     width: 15em;
+    box-sizing: border-box;
     border: 1px solid black;
     border-radius: .5em;
     .nom_fr {

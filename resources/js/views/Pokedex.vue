@@ -1,12 +1,10 @@
 <template>
-    <div class="pokedex" v-if="pokedex">
-        <pokemon-card v-for="(pokemon, i) in pokedex.pokemons" :key="i" :pokemon="pokemon"/>
-    </div>
+    <pokedex v-if="pokedex" :pokedex="pokedex" />
 </template>
 
 <script>
 import Axios from "axios";
-import PokemonCard from "../components/PokemonCard";
+import Pokedex from "../components/Pokedex";
 export default {
     name: 'Hello',
     data() {
@@ -17,7 +15,7 @@ export default {
     props: {
     },
     components: {
-        PokemonCard,
+        Pokedex,
     },
     mounted() {
         const id = this.$route.params.id;
@@ -27,6 +25,13 @@ export default {
     },
     methods: {
     },
+    beforeRouteUpdate(to, from, next) {
+        var id = to.params.id;
+        Axios.get("/api/pokedex/"+id+"/full").then(response => {
+            this.pokedex = response.data;
+        });
+        next();
+    }
 }
 </script>
 

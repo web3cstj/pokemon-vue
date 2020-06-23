@@ -82,7 +82,15 @@
         routes: routes,
     });
     ```
-
+1. Adapter l'instruction qui se trouve en dernier
+    ```
+    import App from "./views/App"
+    const app = new Vue({
+        el: '#app',
+        components: { App },
+        router,
+    });
+    ```
 1. Créer les routes. Dans `/resources/js/routes.js`
     ```
     import Hello from './views/Hello'
@@ -101,14 +109,7 @@
         },
     ];
     ```
-    Adapter l'instruction qui se trouve en dernier
-    ```
-    const app = new Vue({
-        el: '#app',
-        components: { App },
-        router,
-    });
-    ```
+
     - Les instructions `import` et le contenu de routes devront être adaptés au projet.
 1. Le component `App`. Dans `/resources/js/views/App.vue`
     ```html
